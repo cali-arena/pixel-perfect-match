@@ -1,0 +1,82 @@
+[
+ {
+  "codigo": "CON-IPT",
+  "descripcion": "Internet dedicado (IP Transit) — circuito {bw}",
+  "rango_usd": [
+   900,
+   18000
+  ]
+ },
+ {
+  "codigo": "CON-MPLS",
+  "descripcion": "Red MPLS / VPN IP — {n} sitios",
+  "rango_usd": [
+   2500,
+   60000
+  ]
+ },
+ {
+  "codigo": "CON-SDWAN",
+  "descripcion": "SD-WAN gestionado — {n} sitios",
+  "rango_usd": [
+   1800,
+   40000
+  ]
+ },
+ {
+  "codigo": "CON-WAVE",
+  "descripcion": "Wavelength / Capacidad {bw} — ruta {ruta}",
+  "rango_usd": [
+   8000,
+   120000
+  ]
+ },
+ {
+  "codigo": "DC-COLO",
+  "descripcion": "Colocation data center — {r} racks",
+  "rango_usd": [
+   3000,
+   95000
+  ]
+ },
+ {
+  "codigo": "DC-XCON",
+  "descripcion": "Cross-connect data center",
+  "rango_usd": [
+   150,
+   2500
+  ]
+ },
+ {
+  "codigo": "CLD-PRIV",
+  "descripcion": "Nube privada / IaaS gestionado",
+  "rango_usd": [
+   2000,
+   55000
+  ]
+ },
+ {
+  "codigo": "SEC-DDOS",
+  "descripcion": "Mitigación DDoS",
+  "rango_usd": [
+   600,
+   15000
+  ]
+ },
+ {
+  "codigo": "SEC-FW",
+  "descripcion": "Firewall gestionado / SASE",
+  "rango_usd": [
+   800,
+   22000
+  ]
+ },
+ {
+  "codigo": "VOZ-SIP",
+  "descripcion": "Troncales SIP / Voz empresarial",
+  "rango_usd": [
+   300,
+   9000
+  ]
+ }
+]

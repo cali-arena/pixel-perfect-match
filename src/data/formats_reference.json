@@ -1,0 +1,154 @@
+{
+ "_nota": "Referencia de formatos fiscales y de portales para dar realismo a la POC. Compilado del conocimiento público de cada autoridad fiscal; validar con el equipo de Cirion antes de usar en producción. Los IDs de emisores y clientes del kit son ficticios con dígito verificador válido.",
+ "paises": {
+  "AR": {
+   "autoridad": "ARCA (ex-AFIP)",
+   "documento": "Factura electrónica A/B/E (cód. 01/06/19)",
+   "numero": "Letra + Punto de venta (5 dígitos) + Número (8 dígitos) → 'A 00003-00012345'",
+   "autorizacion": "CAE (14 dígitos) + fecha de vencimiento del CAE",
+   "id_fiscal": "CUIT 11 dígitos XX-XXXXXXXX-X (dígito verificador módulo 11)",
+   "moneda": "ARS / USD",
+   "formato_archivo": "PDF con QR de ARCA; integración por web service (WSFE)"
+  },
+  "BR": {
+   "autoridad": "SEFAZ (estadual) / Receita Federal",
+   "documento": "NFCom — Nota Fiscal Fatura de Serviço de Comunicação (modelo 62), estándar para telecom desde 2024–2025; NFS-e para servicios no telecom",
+   "numero": "Número (9 dígitos) + Série (3)",
+   "autorizacion": "Chave de acesso 44 dígitos (cUF+AAMM+CNPJ+modelo+série+número+tpEmis+código+DV módulo 11) + protocolo de autorização",
+   "id_fiscal": "CNPJ 14 dígitos XX.XXX.XXX/XXXX-XX",
+   "moneda": "BRL",
+   "formato_archivo": "XML + DANFE-COM (PDF)"
+  },
+  "CL": {
+   "autoridad": "SII",
+   "documento": "DTE tipo 33 (factura electrónica afecta) / 34 (exenta)",
+   "numero": "Folio numérico",
+   "autorizacion": "Track ID del SII + timbre electrónico (TED) en el PDF",
+   "id_fiscal": "RUT XX.XXX.XXX-X (DV módulo 11, puede ser K)",
+   "moneda": "CLP / USD",
+   "formato_archivo": "XML DTE + PDF con timbre; muchos clientes exigen HES u OC en referencia"
+  },
+  "CO": {
+   "autoridad": "DIAN",
+   "documento": "Factura electrónica de venta (UBL 2.1)",
+   "numero": "Prefijo + consecutivo autorizado por resolución (ej. FEV12345)",
+   "autorizacion": "CUFE — hash SHA-384 de 96 caracteres hexadecimales",
+   "id_fiscal": "NIT XXX.XXX.XXX-X (DV)",
+   "moneda": "COP / USD",
+   "formato_archivo": "XML UBL + PDF con QR; RADIAN para eventos de aceptación"
+  },
+  "MX": {
+   "autoridad": "SAT",
+   "documento": "CFDI 4.0 tipo Ingreso",
+   "numero": "Serie + Folio (opcionales, ej. A-10234)",
+   "autorizacion": "UUID / Folio fiscal timbrado por PAC (36 caracteres)",
+   "id_fiscal": "RFC persona moral 12 caracteres",
+   "moneda": "MXN / USD",
+   "formato_archivo": "XML CFDI + PDF; método de pago PUE/PPD, uso CFDI (ej. G03); PPD requiere complemento de pago"
+  },
+  "PE": {
+   "autoridad": "SUNAT",
+   "documento": "Factura electrónica (tipo 01)",
+   "numero": "Serie F### + correlativo 8 dígitos → F001-00012345",
+   "autorizacion": "CDR (Constancia de Recepción) de SUNAT u OSE",
+   "id_fiscal": "RUC 11 dígitos (empresas inician con 20)",
+   "moneda": "PEN / USD",
+   "formato_archivo": "XML UBL 2.1 + PDF; detracción en servicios cuando aplica"
+  },
+  "EC": {
+   "autoridad": "SRI",
+   "documento": "Factura electrónica (01)",
+   "numero": "Establecimiento-Punto-Secuencial → 001-001-000012345",
+   "autorizacion": "Clave de acceso 49 dígitos (DV módulo 11) + estado AUTORIZADO",
+   "id_fiscal": "RUC 13 dígitos (termina en 001)",
+   "moneda": "USD",
+   "formato_archivo": "XML + RIDE (PDF)"
+  },
+  "PA": {
+   "autoridad": "DGI",
+   "documento": "Factura electrónica (SFEP)",
+   "numero": "Número de documento fiscal",
+   "autorizacion": "CUFE + protocolo de autorización",
+   "id_fiscal": "RUC + DV",
+   "moneda": "USD",
+   "formato_archivo": "XML + CAFE (PDF)"
+  },
+  "US": {
+   "autoridad": "N/A (sin facturación electrónica obligatoria)",
+   "documento": "Commercial invoice",
+   "numero": "Libre (ej. INV-US-12345)",
+   "autorizacion": "N/A",
+   "id_fiscal": "EIN XX-XXXXXXX",
+   "moneda": "USD",
+   "formato_archivo": "PDF"
+  }
+ },
+ "portales": {
+  "SAP Ariba": {
+   "identificador_comprador": "ANID (AN + 11 dígitos)",
+   "orden_compra": "Típicamente PO SAP de 10 dígitos iniciando en 45 (ej. 4500123456)",
+   "tipos_factura": [
+    "PO-Flip (desde la OC)",
+    "Non-PO",
+    "Service Sheet / Hoja de entrada de servicio"
+   ],
+   "campos": [
+    "N.º de factura",
+    "Fecha de factura",
+    "OC y líneas",
+    "Cantidades / montos por línea",
+    "Impuestos",
+    "Moneda",
+    "Dirección de remisión",
+    "Adjuntos (PDF/XML)",
+    "Comentarios"
+   ],
+   "estados_proveedor": [
+    "Enviada (Sent)",
+    "Aprobada (Approved)",
+    "En pago (Paying)",
+    "Pagada (Paid)",
+    "Rechazada (Rejected)",
+    "Fallida (Failed)"
+   ],
+   "notas": "Validaciones del comprador pueden rechazar por monto > OC, OC cerrada, período o impuestos."
+  },
+  "Microsoft Supplier Portal": {
+   "identificador_proveedor": "Supplier ID de Microsoft",
+   "orden_compra": "PO numérica (aprox. 10 dígitos — validar formato real con Cirion)",
+   "campos": [
+    "N.º de factura",
+    "Fecha",
+    "PO",
+    "Líneas de la PO",
+    "Montos e impuestos",
+    "Moneda",
+    "Entidad Microsoft facturada",
+    "Adjunto PDF (y XML fiscal donde aplica)"
+   ],
+   "estados_proveedor": [
+    "Enviada / En revisión",
+    "Aprobada",
+    "Programada para pago",
+    "Pagada",
+    "Rechazada"
+   ],
+   "notas": "Formato y flujo exactos a validar con el video de referencia de Cirion; acceso con cuenta corporativa y MFA."
+  },
+  "Correo electrónico": {
+   "identificador": "Message-ID del envío",
+   "campos": [
+    "Destinatarios AP por cliente",
+    "Asunto con N.º de factura y OC",
+    "Cuerpo con datos clave",
+    "Adjuntos PDF/XML/planilla"
+   ],
+   "estados": [
+    "Enviado",
+    "Entregado (DSN)",
+    "Rebotado",
+    "Respuesta del cliente (acuse / rechazo)"
+   ]
+  }
+ }
+}
