@@ -1,0 +1,47 @@
+{
+ "AR": {
+  "entity": "Cirion Technologies Argentina S.A.",
+  "tax_id_type": "CUIT",
+  "tax_id": "30-86987973-4"
+ },
+ "BR": {
+  "entity": "Cirion Technologies do Brasil Ltda.",
+  "tax_id_type": "CNPJ",
+  "tax_id": "15.881.399/0001-34"
+ },
+ "CL": {
+  "entity": "Cirion Technologies Chile S.A.",
+  "tax_id_type": "RUT",
+  "tax_id": "76.005.315-5"
+ },
+ "CO": {
+  "entity": "Cirion Technologies Colombia S.A.S.",
+  "tax_id_type": "NIT",
+  "tax_id": "882.437.103-7"
+ },
+ "MX": {
+  "entity": "Cirion Technologies México S. de R.L. de C.V.",
+  "tax_id_type": "RFC",
+  "tax_id": "CDJ0308015UN"
+ },
+ "PE": {
+  "entity": "Cirion Technologies Perú S.A.",
+  "tax_id_type": "RUC",
+  "tax_id": "20645568151"
+ },
+ "EC": {
+  "entity": "Cirion Technologies Ecuador S.A.",
+  "tax_id_type": "RUC",
+  "tax_id": "1718844729001"
+ },
+ "PA": {
+  "entity": "Cirion Technologies Panamá S.A.",
+  "tax_id_type": "RUC",
+  "tax_id": "155424008-2-2015 DV 57"
+ },
+ "US": {
+  "entity": "Cirion Technologies USA, Inc.",
+  "tax_id_type": "EIN",
+  "tax_id": "56-8735513"
+ }
+}

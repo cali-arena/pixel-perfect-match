@@ -1,0 +1,72 @@
+[
+ {
+  "codigo": "R01",
+  "motivo": "OC inválida o cerrada",
+  "etapa": "portal",
+  "prevenible_por_validacion": true,
+  "accion": "Solicitar OC vigente al cliente"
+ },
+ {
+  "codigo": "R02",
+  "motivo": "Monto no coincide con la OC",
+  "etapa": "portal",
+  "prevenible_por_validacion": true,
+  "accion": "Revisar líneas vs. OC antes del envío"
+ },
+ {
+  "codigo": "R03",
+  "motivo": "XML faltante o inválido",
+  "etapa": "validación",
+  "prevenible_por_validacion": true,
+  "accion": "Regenerar XML fiscal"
+ },
+ {
+  "codigo": "R04",
+  "motivo": "Campo obligatorio vacío",
+  "etapa": "validación",
+  "prevenible_por_validacion": true,
+  "accion": "Completar dato maestro del cliente"
+ },
+ {
+  "codigo": "R05",
+  "motivo": "Factura duplicada en el portal",
+  "etapa": "orquestador",
+  "prevenible_por_validacion": true,
+  "accion": "Bloqueada por idempotencia"
+ },
+ {
+  "codigo": "R06",
+  "motivo": "Fecha de servicio fuera del período de la OC",
+  "etapa": "portal",
+  "prevenible_por_validacion": true,
+  "accion": "Validar período vs. vigencia de OC"
+ },
+ {
+  "codigo": "R07",
+  "motivo": "Moneda distinta a la OC",
+  "etapa": "portal",
+  "prevenible_por_validacion": true,
+  "accion": "Emitir en moneda de la OC"
+ },
+ {
+  "codigo": "R08",
+  "motivo": "HES / acta de conformidad no adjunta",
+  "etapa": "portal",
+  "prevenible_por_validacion": true,
+  "accion": "Adjuntar HES o acta"
+ },
+ {
+  "codigo": "R09",
+  "motivo": "Datos del receptor no coinciden con el registro fiscal",
+  "etapa": "cliente",
+  "prevenible_por_validacion": true,
+  "accion": "Actualizar razón social / ID fiscal"
+ },
+ {
+  "codigo": "R10",
+  "motivo": "Rechazo comercial del cliente (disputa de servicio)",
+  "etapa": "cliente",
+  "prevenible_por_validacion": false,
+  "accion": "Derivar a Customer Care"
+ }
+]

@@ -1,0 +1,37 @@
+{
+ "SAP Ariba": [
+  "Documento recibido",
+  "Validación (PDF, XML, OC, campos)",
+  "Login autorizado en Ariba Network (cuenta de proveedor)",
+  "Selección del cliente (ANID)",
+  "Búsqueda de la OC (PO-Flip)",
+  "Llenado de cabecera: N.º factura, fecha, moneda",
+  "Líneas, cantidades e impuestos",
+  "Carga de PDF y XML",
+  "Envío de la factura",
+  "Captura del ID de documento Ariba",
+  "Lectura de estado: Enviada → Aprobada / Rechazada → Pagada"
+ ],
+ "Microsoft Supplier Portal": [
+  "Documento recibido",
+  "Validación (PDF, XML, PO, entidad Microsoft)",
+  "Login con cuenta corporativa + MFA (procedimiento aprobado)",
+  "Selección de entidad Microsoft",
+  "Búsqueda de la PO",
+  "Llenado de datos de factura",
+  "Selección de líneas de PO y montos",
+  "Carga de PDF (y XML fiscal)",
+  "Envío",
+  "Captura del comprobante de envío",
+  "Lectura de estado: En revisión → Aprobada / Rechazada → Pagada"
+ ],
+ "Correo electrónico": [
+  "Documento recibido",
+  "Validación de adjuntos y destinatarios",
+  "Armado del correo con plantilla del cliente",
+  "Envío por Microsoft Graph / SMTP",
+  "Registro de Message-ID",
+  "Monitoreo de rebote (DSN)",
+  "Lectura de respuesta del cliente (acuse / rechazo)"
+ ]
+}
