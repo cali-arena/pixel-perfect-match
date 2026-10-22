@@ -540,10 +540,9 @@ export class SimStore {
           this.transition(inv, "Reintento programado", now);
           this.log("WARN", "connector.ariba", `job=${inv.jobId} inv=${inv.numero} submit 503 Service Unavailable → retry ${Math.min(inv.intentos - 1, 3)}/3 in ${Math.round(delay / 1000 / this.speed)}s`, now, inv.jobId);
           this.errors24.timeout++;
-          const shift = delay;
-          inv.plan = [{ estado: "Enviando", ts: now + delay }, { estado: "Enviada", ts: now + delay + 3 * S }, ...[next, ...inv.plan].filter((s) => s.estado !== "Enviada").map((s) => ({ ...s, ts: s.ts + shift }))];
-          // dedupe: keep chain Enviando→Enviada→rest
-          inv.plan = inv.plan.filter((s, i, arr) => !(i > 1 && s.estado === "Enviando" && arr[i - 1].estado === "Enviada"));
+          const base = now + delay;
+          const rest = [next, ...inv.plan].map((s) => ({ ...s, ts: Math.max(s.ts, now) + delay + 3 * S }));
+          inv.plan = [{ estado: "Enviando", ts: base }, ...rest];
           break;
         }
         inv.plan.shift();
